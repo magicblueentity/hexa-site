@@ -1,0 +1,119 @@
+/* Hexa static site — single stylesheet, no framework */
+:root {
+  --brand: #4f46e5;
+  --brand-dark: #4338ca;
+  --brand-light: #eef2ff;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: #e2e8f0;
+  --bg: #ffffff;
+  --bg-alt: #f8fafc;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+.container { max-width: 64rem; margin: 0 auto; padding: 0 1.25rem; }
+
+.skip-link {
+  position: absolute; left: -999px; top: 0; background: var(--brand);
+  color: #fff; padding: 0.5rem 1rem; z-index: 100;
+}
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+/* Header */
+.site-header { border-bottom: 1px solid var(--border); background: var(--bg); }
+.header-inner { display: flex; align-items: center; gap: 1.5rem; height: 4rem; }
+.logo { font-weight: 700; font-size: 1.25rem; color: var(--brand); text-decoration: none; }
+.nav-list { list-style: none; display: flex; gap: 1.25rem; }
+.nav-list a { text-decoration: none; color: var(--muted); font-size: 0.9rem; }
+.nav-list a:hover, .nav-list a:focus { color: var(--brand); }
+.header-inner > .btn { margin-left: auto; }
+
+/* Buttons */
+.btn {
+  display: inline-block; border-radius: 0.5rem; font-weight: 600;
+  padding: 0.65rem 1.25rem; text-decoration: none; font-size: 0.95rem;
+  border: 1px solid transparent; transition: background 0.15s, color 0.15s;
+}
+.btn-primary { background: var(--brand); color: #fff; }
+.btn-primary:hover, .btn-primary:focus { background: var(--brand-dark); }
+.btn-outline { border-color: var(--brand); color: var(--brand); }
+.btn-outline:hover, .btn-outline:focus { background: var(--brand-light); }
+.btn-inverse { background: #fff; color: var(--brand-dark); }
+.btn-inverse:hover, .btn-inverse:focus { color: var(--brand-dark); }
+.btn-sm { padding: 0.4rem 0.9rem; font-size: 0.85rem; }
+.btn-lg { padding: 0.85rem 1.75rem; font-size: 1.05rem; }
+
+/* Hero */
+.hero { text-align: center; padding: 5rem 0; }
+.badge {
+  display: inline-block; background: var(--brand-light); color: var(--brand-dark);
+  font-size: 0.8rem; font-weight: 600; padding: 0.25rem 0.8rem;
+  border-radius: 999px; margin-bottom: 1rem;
+}
+.hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -0.02em; margin-bottom: 1rem; }
+.hero-sub { max-width: 42rem; margin: 0 auto 2rem; color: var(--muted); font-size: 1.15rem; }
+
+/* Benefits */
+.benefits { background: var(--bg-alt); padding: 4rem 0; }
+.benefits h2, .pricing h2, .cta h2 { text-align: center; font-size: 1.75rem; margin-bottom: 0.25rem; }
+.pricing-sub { text-align: center; color: var(--muted); margin-bottom: 2.5rem; }
+.benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+.benefit {
+  background: #fff; border: 1px solid var(--border); border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+.benefit h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+.benefit p { color: var(--muted); font-size: 0.92rem; }
+
+/* Pricing */
+.pricing { padding: 4rem 0; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.tier {
+  border: 1px solid var(--border); border-radius: 0.75rem;
+  padding: 1.75rem; display: flex; flex-direction: column; background: #fff;
+}
+.tier-featured { border-color: var(--brand); box-shadow: 0 0 0 2px var(--brand); }
+.tier .badge { align-self: flex-start; }
+.price { margin: 0.5rem 0 1rem; }
+.amount { font-size: 2.25rem; font-weight: 700; }
+.per { color: var(--muted); font-size: 0.95rem; }
+.tier ul { list-style: none; margin-bottom: 1.5rem; flex: 1; }
+.tier li { padding: 0.3rem 0; color: var(--muted); font-size: 0.92rem; }
+.tier li::before { content: "✓ "; color: var(--brand); font-weight: 700; }
+.tier .btn { text-align: center; }
+
+/* CTA */
+.cta { background: var(--brand); color: #fff; text-align: center; padding: 4rem 0; }
+.cta h2 { margin-bottom: 1.5rem; }
+.cta .btn-inverse:hover, .cta .btn-inverse:focus { color: var(--brand-dark); }
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--border); padding: 2.5rem 0; color: var(--muted); font-size: 0.9rem; }
+.footer-inner { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; align-items: center; }
+.site-footer a { color: var(--brand); }
+
+/* Legal draft pages — placeholders, not linked until legal sign-off */
+.draft-banner {
+  background: #fef3c7; border: 1px solid #d97706; color: #78350f;
+  border-radius: 0.5rem; padding: 1rem 1.25rem; margin: 2rem 0 1.5rem;
+  font-size: 0.95rem;
+}
+.legal-page main { padding-bottom: 4rem; }
+.legal-page h1 { margin-bottom: 1.5rem; }
+.legal-todo { color: var(--muted); margin-bottom: 0.75rem; font-size: 0.95rem; }
+.legal-page mark { background: var(--brand-light); color: var(--brand-dark); padding: 0.05rem 0.3rem; border-radius: 0.25rem; }
+
+/* Responsive */
+@media (max-width: 800px) {
+  .benefit-grid, .pricing-grid { grid-template-columns: 1fr; }
+  .nav-list { display: none; }
+  .hero { padding: 3.5rem 0; }
+}
